@@ -8,7 +8,6 @@ module FbGraph2
     include Edge::Feed
     include Edge::GlobalBrandChildren
     include Edge::Insights
-    include Edge::Links
     include Edge::Locations
     include Edge::Milestones
     include Edge::Offers
@@ -19,7 +18,6 @@ module FbGraph2
     include Edge::Ratings
     include Edge::Roles::PageContext
     include Edge::Settings
-    include Edge::Statuses
     include Edge::Tagged
     include Edge::Videos
     extend Searchable
@@ -30,7 +28,7 @@ module FbGraph2
         :current_location, :description, :directed_by, :founded, :general_info, :general_manager, :global_brand_page_name,
         :hometown, :hours, :impressum, :is_permanently_closed, :is_published, :is_unclaimed, :likes, :link, :mission, :name,
         :name_with_location_descriptor, :phone, :press_contact, :price_range, :products, :talking_about_count, :username,
-        :website, :were_here_count,
+        :website, :were_here_count, :emails,
         # NOTE: only within /:user_id/accounts context
         :perms
       ],
@@ -47,6 +45,7 @@ module FbGraph2
         :with
       ],
       location: [:location],
+      start_info: [:start_info],
       custom: [
         :category_list, :context, :location, :parking, :restaurant_services, :restaurant_specialties,
         # NOTE: undocumented

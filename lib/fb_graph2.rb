@@ -7,8 +7,8 @@ module FbGraph2
   mattr_accessor :root_url, :api_version, :gem_version, :logger, :debugging, :_http_config_, :object_classes
 
   self.root_url = 'https://graph.facebook.com'
-  self.api_version = 'v2.3'
-  self.gem_version = File.read(File.join(__dir__, '../VERSION')).strip
+  self.api_version = 'v2.4'
+  self.gem_version = File.read(File.join(File.dirname(__FILE__), '../VERSION')).strip
   self.logger = Logger.new(STDOUT)
   self.logger.progname = 'FbGraph2'
 
@@ -54,7 +54,7 @@ require_relative 'fb_graph2/edge'
   '',
   'request_filter'
 ].each do |dir|
-  Dir[File.join(__dir__, 'fb_graph2', dir, '*.rb')].each do |file|
+  Dir[File.join(File.dirname(__FILE__), 'fb_graph2', dir, '*.rb')].each do |file|
     require file
   end
 end
