@@ -29,10 +29,15 @@ module FbGraph2
       end
 
       def detect_from_header(headers, error)
+        header_matchers = {
+          /not_found/       => NotFound,
+          /invalid_token/   => InvalidToken,
+          /invalid_request/ => InvalidRequest }
+
         key, value = headers.detect do |name, value|
           name.upcase == "WWW-Authenticate".upcase
         end || return
-        matched, klass = ERROR_HEADER_MATCHERS.detect do |matcher, klass_name|
+        matched, klass = header_matchers.detect do |matcher, klass_name|
           matcher =~ value
         end || return
         klass
@@ -73,11 +78,5 @@ module FbGraph2
 
     class InvalidToken < Unauthorized; end
     class InvalidRequest < BadRequest; end
-
-    ERROR_HEADER_MATCHERS = {
-      /not_found/       => NotFound,
-      /invalid_token/   => InvalidToken,
-      /invalid_request/ => InvalidRequest
-    }
   end
 end
