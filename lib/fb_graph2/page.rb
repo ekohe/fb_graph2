@@ -28,7 +28,7 @@ module FbGraph2
         :current_location, :description, :directed_by, :founded, :general_info, :general_manager, :global_brand_page_name,
         :hometown, :hours, :impressum, :is_permanently_closed, :is_published, :is_unclaimed, :likes, :link, :mission, :name,
         :name_with_location_descriptor, :phone, :press_contact, :price_range, :products, :talking_about_count, :username,
-        :website, :were_here_count, :emails,
+        :website, :were_here_count, :emails, :fan_count
         # NOTE: only within /:user_id/accounts context
         :perms
       ],
